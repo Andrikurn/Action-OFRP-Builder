@@ -124,8 +124,7 @@ jobs:
     - name: Test task
       run : |
         cd ${{ steps.pwd.outputs.workspace-folder }}/fox_${{ github.event.inputs.MANIFEST_BRANCH }}
-        ls -a external/platform
-        ls -a external/platform/gflags
+        ls -a
 
     - name: Building recovery
       run: |
