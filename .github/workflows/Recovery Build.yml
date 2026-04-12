@@ -121,6 +121,12 @@ jobs:
       with:
         swap-size-gb: 12
 
+    - name: Test task
+      run : |
+        cd ${{ steps.pwd.outputs.workspace-folder }}/fox_${{ github.event.inputs.MANIFEST_BRANCH }}
+        ls -a external/platform
+        ls -a external/platform/gflags
+
     - name: Building recovery
       run: |
         cd ${{ steps.pwd.outputs.workspace-folder }}/fox_${{ github.event.inputs.MANIFEST_BRANCH }}
