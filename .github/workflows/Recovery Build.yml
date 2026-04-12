@@ -121,13 +121,13 @@ jobs:
       with:
         swap-size-gb: 12
 
-    - name: Test task
+    - name: Workaround for missing repo projects.
       run : |
         cd ${{ steps.pwd.outputs.workspace-folder }}/fox_${{ github.event.inputs.MANIFEST_BRANCH }}
         repo sync external/gflags
-        ls -a ${{ steps.pwd.outputs.workspace-folder }}/fox_${{ github.event.inputs.MANIFEST_BRANCH }}
-        ls -a ${{ steps.pwd.outputs.workspace-folder }}/fox_${{ github.event.inputs.MANIFEST_BRANCH }}/external
-        ls -a ${{ steps.pwd.outputs.workspace-folder }}/fox_${{ github.event.inputs.MANIFEST_BRANCH }}/external/gflags
+        repo sync external/guava
+        repo sync hardware/google/interfaces
+        repo sync hardware/google/pixel
 
     - name: Building recovery
       run: |
